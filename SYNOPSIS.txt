@@ -1,0 +1,5 @@
+mathetmatical forum for math problems
+further directions unclear
+
+in short, add files to this repo that you want to update. Clone stuff to download the project into your pc, edit the code and then commit using github desktop (very convenient tool that doesn't need terminal n stuff)
+download for github desktop: https://desktop.github.com/
