@@ -13,4 +13,4 @@ const calculateResult = (expression) => {
   }
 };
 
-module.exports = calculateResult;
+export default calculateResult;
