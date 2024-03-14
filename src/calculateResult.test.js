@@ -1,4 +1,4 @@
-const calculateResult = require("./calculateResult");
+import calculateResult from "./calculateResult";
 
 describe("calculateResult function", () => {
   it("should add two numbers", () => {

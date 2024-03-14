@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Calculator.css";
-import calculateResult from "./calculateResult";
+import * as calculateResult from "./calculateResult";
 
 const Calculator = () => {
   const [expression, setExpression] = useState("");
