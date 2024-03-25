@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Calculator.css";
-import * as calculateResult from "./calculateResult";
+import calculateResult from "./calculateResult";
 
 const Calculator = () => {
   const [expression, setExpression] = useState("");
@@ -19,7 +19,12 @@ const Calculator = () => {
     <div className="calculator">
       <div className="header">Elementarus skaičiuotuvas</div>
       <div className="result-container">
-        <input className="expression" type="text" value={expression} readOnly />
+        <input
+          className="expression"
+          type="text"
+          value={expression}
+          onChange={(e) => setExpression(e.target.value)}
+        />
         <div className="result">{result}</div>
       </div>
       <div className="buttons">
