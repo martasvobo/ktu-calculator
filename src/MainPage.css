@@ -1,0 +1,66 @@
+/* MainPage.css */
+
+/* Main Container */
+.main-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Header */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  header h1 {
+    margin: 0;
+    padding: auto;
+  }
+  
+  /* Navigation */
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Green */
+  }
+  
+  nav ul li a:hover {
+    background-color: #45a049; /* Darker green */
+  }
+  
+  /* Main Content */
+  main {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    background-image: url('C:\Users\spran\Downloads\Calculator_project\ktu-calculator\src\maths_1920.png'); /* Replace 'path/to/your/image.jpg' with the actual path to your image file */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Set height to 100% of viewport height */
+    overflow: hidden; /* Prevent scrolling */
+  }

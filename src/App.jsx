@@ -1,6 +1,9 @@
-import { useState } from 'react'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MainPage from './MainPage';
+import TopicsPage from './TopicsPage';
 import Calculator from './Calculator';
+import MatrixPage from './MatrixPage';
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAHMKdvge9IbE5Q1mocLk9u_t9ZOtDAet8",
@@ -15,10 +18,15 @@ const firebaseConfig = {
 
 function App() {
   return (
-      <div className="App">
-          <Calculator /> {/* Render with uppercase */}
-      </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/topics" element={<TopicsPage />} />
+        <Route path="/calculator" element={<Calculator />} />
+        <Route path="/matrix" element={<MatrixPage/>} />
+      </Routes>
+    </Router>
   );
 }
 
-export default App
+export default App;

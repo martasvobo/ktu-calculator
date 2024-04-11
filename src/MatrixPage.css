@@ -1,0 +1,49 @@
+.matrix-container {
+    max-width: 90%; /* Adjust as needed */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+  
+  .matrix-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .matrix-inputs {
+    display: flex;
+    flex-wrap: wrap; /* Allow inputs to wrap to next line */
+    justify-content: center; /* Center the inputs */
+    margin-bottom: 20px;
+  }
+  
+  .matrix-table {
+    border-collapse: collapse;
+    width: auto; /* Allow table to adjust width based on content */
+    margin: 0 auto;
+  }
+  
+  .matrix-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    width: 40px; /* Set fixed width for each cell */
+    height: 40px; /* Set fixed height for each cell */
+    text-align: center;
+  }
+  
+  .matrix-buttons {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    margin-bottom: 20px;
+  }
+  
+  .matrix-result {
+    margin-top: 20px;
+  }
+  
+  .matrix-result h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+  }
