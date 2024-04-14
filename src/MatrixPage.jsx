@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './MatrixPage.css'; // Import CSS file
 
 function MatrixPage() {
@@ -83,7 +84,13 @@ function MatrixPage() {
 
   return (
     <div className="matrix-container">
-      <h1 className="matrix-title">Matriksu operacijos</h1>
+      <div className="header">
+        <h1>Matricu Skaiciuotuvas</h1>
+        <div className="nav-buttons">
+          <Link to="/">pagrindinis psl</Link>
+        </div>
+      </div>
+      <h1 className="matrix-title">Matricu operacijos</h1>
       <div className="matrix-inputs">
         <table className="matrix-table">
           <tbody>

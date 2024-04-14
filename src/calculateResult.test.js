@@ -12,10 +12,20 @@ describe("calculateResult function", () => {
     const expectedResult = 3;
     expect(calculateResult(expression)).toBe(expectedResult);
   });
+  it("should perform multiple operations at once", () => {
+    const expression = "5 - 2 + 3 * 2";
+    const expectedResult = 9;
+    expect(calculateResult(expression)).toBe(expectedResult);
+  });
 
   it("should multiply two numbers", () => {
     const expression = "4 * 3";
     const expectedResult = 12;
+    expect(calculateResult(expression)).toBe(expectedResult);
+  });
+  it("should perform complex operations", () => {
+    const expression = "9 / sqrt(9)";
+    const expectedResult = 3;
     expect(calculateResult(expression)).toBe(expectedResult);
   });
 
