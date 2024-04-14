@@ -1,7 +1,7 @@
 // MainPage.jsx
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './MainPage.css'; // Import the CSS file for styling
+import React from "react";
+import { Link } from "react-router-dom";
+import "./MainPage.css"; // Import the CSS file for styling
 
 function MainPage() {
   return (
@@ -10,10 +10,21 @@ function MainPage() {
         <h1>Sveiki atvyke!</h1>
         <nav>
           <ul>
-                    <li><Link to="/">Pagrindinis psl</Link></li>
-                    <li><Link to="/topics">Temos</Link></li>
-                    <li><Link to="/calculator">Skaiciuotuvas</Link></li>
-                    <li><Link to="/matrix">Matricos</Link></li> 
+            <li>
+              <Link to="/">Pagrindinis psl</Link>
+            </li>
+            <li>
+              <Link to="/topics">Temos</Link>
+            </li>
+            <li>
+              <Link to="/calculator">Skaiciuotuvas</Link>
+            </li>
+            <li>
+              <Link to="/matrix">Matricos</Link>
+            </li>
+            <li>
+              <Link to="/login">Prisijungti</Link>
+            </li>
           </ul>
         </nav>
       </header>
