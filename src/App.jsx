@@ -1,38 +1,39 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import MainPage from "./MainPage";
-import TopicsPage from "./TopicsPage";
+import React, { useEffect, useState } from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Calculator from "./Calculator";
-import MatrixPage from "./MatrixPage";
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
 import LoginPage from "./LoginPage";
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyAHMKdvge9IbE5Q1mocLk9u_t9ZOtDAet8",
-  authDomain: "ktu-calculator.firebaseapp.com",
-  projectId: "ktu-calculator",
-  storageBucket: "ktu-calculator.appspot.com",
-  messagingSenderId: "841434618819",
-  appId: "1:841434618819:web:73564581e91da712b03b76",
-};
+import MainPage from "./MainPage";
+import MatrixPage from "./MatrixPage";
+import RegisterPage from "./RegisterPage";
+import TopicsPage from "./TopicsPage";
+import { auth } from "./firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-// Initialize Firebase
+export const UserContext = React.createContext(null);
 
 function App() {
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+      setLoading(false);
+    });
+    return unsubscribe;
+  });
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/topics" element={<TopicsPage />} />
-        <Route path="/calculator" element={<Calculator />} />
-        <Route path="/matrix" element={<MatrixPage />} />
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
-    </Router>
+    <UserContext.Provider value={user}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/calculator" element={<Calculator />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          {user && <Route path="/topics" element={<TopicsPage />} />}
+          {user && <Route path="/matrix" element={<MatrixPage />} />}
+        </Routes>
+      </Router>
+    </UserContext.Provider>
   );
 }
 

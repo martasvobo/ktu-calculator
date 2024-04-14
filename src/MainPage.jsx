@@ -1,30 +1,60 @@
 // MainPage.jsx
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./MainPage.css"; // Import the CSS file for styling
+import { auth } from "./firebase";
+import { UserContext } from "./App";
 
 function MainPage() {
+  const user = useContext(UserContext);
   return (
     <div className="main-container">
       <header>
-        <h1>Sveiki atvyke!</h1>
+        {user ? (
+          <h1>Sveiki {user.email}</h1>
+        ) : (
+          <h1>Sveiki atvyke!</h1>
+        )}
         <nav>
           <ul>
             <li>
               <Link to="/">Pagrindinis psl</Link>
             </li>
             <li>
-              <Link to="/topics">Temos</Link>
-            </li>
-            <li>
               <Link to="/calculator">Skaiciuotuvas</Link>
             </li>
-            <li>
-              <Link to="/matrix">Matricos</Link>
-            </li>
-            <li>
-              <Link to="/login">Prisijungti</Link>
-            </li>
+            {!user && (
+              <li>
+                <Link to="/login">Prisijungti</Link>
+              </li>
+            )}
+            {!user && (
+              <li>
+                <Link to="/register">Registruotis</Link>
+              </li>
+            )}
+            {user && (
+              <li>
+                <Link to="/topics">Temos</Link>
+              </li>
+            )}
+            {user && (
+              <li>
+                <Link to="/matrix">Matricos</Link>
+              </li>
+            )}
+            {user && (
+              <li>
+                <button
+                  onClick={() => {
+                    auth.signOut();
+                    window.location.reload();
+                  }}
+                >
+                  Atsijungti
+                </button>
+              </li>
+            )}
           </ul>
         </nav>
       </header>

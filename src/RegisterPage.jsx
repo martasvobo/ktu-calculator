@@ -1,8 +1,11 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import React, { useState } from "react";
-import { useNavigate, useNavigation } from "react-router-dom";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -28,7 +31,7 @@ export default function LoginPage() {
       <button
         onClick={() => {
           const auth = getAuth();
-          signInWithEmailAndPassword(auth, email, password)
+          createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
               window.open("/", "_self");
             })
@@ -37,7 +40,7 @@ export default function LoginPage() {
             });
         }}
       >
-        Log in
+        Register
       </button>
       {errorMessage && <p>{errorMessage}</p>}
     </div>
