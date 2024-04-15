@@ -4,6 +4,7 @@ import {
 } from "firebase/auth";
 import React, { useState } from "react";
 import { auth } from "./firebase";
+import "./LoginPage.css"; // Import CSS file
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -11,7 +12,7 @@ export default function LoginPage() {
   const [errorMessage, setErrorMessage] = useState("");
 
   return (
-    <div>
+    <div className="login-container">
       <input
         type="email"
         placeholder="Email"

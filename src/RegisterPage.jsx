@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import React, { useState } from "react";
+import "./Register.css"; //
 
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -11,7 +12,7 @@ export default function RegisterPage() {
   const [errorMessage, setErrorMessage] = useState("");
 
   return (
-    <div>
+    <div className="register-container">
       <input
         type="email"
         placeholder="Email"
