@@ -1,10 +1,7 @@
-import {
-  createUserWithEmailAndPassword,
-  getAuth,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import "./Register.css"; //
+import "./Register.css";
+import { auth } from "./firebase";
 
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -31,7 +28,6 @@ export default function RegisterPage() {
       />
       <button
         onClick={() => {
-          const auth = getAuth();
           createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
               window.open("/", "_self");

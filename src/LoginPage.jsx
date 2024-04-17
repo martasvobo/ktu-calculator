@@ -47,9 +47,11 @@ export default function LoginPage() {
           sendPasswordResetEmail(auth, email)
             .then(() => {
               alert("Password reset email sent!");
+              setErrorMessage("KEbabs");
             })
             .catch((error) => {
               setErrorMessage(error.message);
+              setErrorMessage("KEbabs");
             });
         }}
       >
