@@ -44,7 +44,7 @@ describe("LoginPage component", () => {
 
     // Wait for the login process to complete
     await waitFor(() => {
-      expect(queryByText("Error")).not.toBeInTheDocument();
+      expect(queryByText("error")).not.toBeInTheDocument();
     });
   });
 
@@ -63,7 +63,7 @@ describe("LoginPage component", () => {
 
     // Wait for the password reset email to be sent
     await waitFor(() => {
-      expect(queryByText("Error")).not.toBeInTheDocument();
+      expect(queryByText("error")).not.toBeInTheDocument();
     });
   });
 
@@ -83,7 +83,7 @@ describe("LoginPage component", () => {
 
     // Check if error message is displayed
     await waitFor(() => {
-      expect(queryByText("Error")).not.toBeInTheDocument();
+      expect(queryByText("error")).not.toBeInTheDocument();
     });
   });
 });

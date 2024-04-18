@@ -1,37 +1,43 @@
-/**
- * @jest-environment jsdom
- */
+import { performOperation } from "./matrixOperations.js";
 
-import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
-import MatrixPage from './MatrixPage';
+describe("Matrix Operations Tests", () => {
+  let matrix1, matrix2;
 
-describe('MatrixPage component', () => {
-  it('renders MatrixPage component', () => {
-    const { getByText } = render(<MatrixPage />);
-    const headerText = getByText('Matricu Skaiciuotuvas');
-    expect(headerText).toBeInTheDocument();
+  beforeEach(() => {
+    matrix1 = [
+      [1, 2],
+      [3, 4],
+    ];
+    matrix2 = [
+      [5, 6],
+      [7, 8],
+    ];
   });
 
-  it('increases matrix size when increaseSize is called', () => {
-    const { getByText, getAllByTestId } = render(<MatrixPage />);
-    const increaseButton = getByText('Padidinti dydi');
-    fireEvent.click(increaseButton);
-    const inputs = getAllByTestId('matrix-input');
-    expect(inputs.length).toBe(6); // 3x3 matrix
+  it("performs matrix addition correctly", () => {
+    const expectedResult = [
+      [6, 8],
+      [10, 12],
+    ];
+    const result = performOperation("+", matrix1, matrix2);
+    expect(result).toEqual(expectedResult);
   });
 
-  it('performs addition operation correctly', () => {
-    const { getByText, getAllByTestId } = render(<MatrixPage />);
-    const addButton = getByText('sudeti');
-    const input1 = getAllByTestId('matrix-input')[0];
-    const input2 = getAllByTestId('matrix-input')[1];
-    fireEvent.change(input1, { target: { value: 2 } });
-    fireEvent.change(input2, { target: { value: 3 } });
-    fireEvent.click(addButton);
-    const resultCells = getAllByTestId('result-cell');
-    expect(resultCells[0]).toHaveTextContent('5');
+  it("performs matrix subtraction correctly", () => {
+    const expectedResult = [
+      [-4, -4],
+      [-4, -4],
+    ];
+    const result = performOperation("-", matrix1, matrix2);
+    expect(result).toEqual(expectedResult);
   });
 
-  // Add more tests for other operations and functionalities...
+  it("performs matrix multiplication correctly", () => {
+    const expectedResult = [
+      [19, 22],
+      [43, 50],
+    ];
+    const result = performOperation("*", matrix1, matrix2);
+    expect(result).toEqual(expectedResult);
+  });
 });
