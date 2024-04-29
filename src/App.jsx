@@ -8,6 +8,7 @@ import RegisterPage from "./RegisterPage";
 import TopicsPage from "./TopicsPage";
 import { auth } from "./firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import TopicPage from "./TopicPage";
 
 export const UserContext = React.createContext(null);
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           {user && <Route path="/topics" element={<TopicsPage />} />}
+          {user && <Route path="/topics/:topicId" element={<TopicPage />} />}
           {user && <Route path="/matrix" element={<MatrixPage />} />}
         </Routes>
       </Router>
