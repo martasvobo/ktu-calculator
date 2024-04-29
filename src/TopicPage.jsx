@@ -6,10 +6,12 @@ import {
   onSnapshot,
   updateDoc,
 } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { UserContext } from "./App";
 
 export default function TopicPage() {
+  const user = useContext(UserContext);
   const { topicId } = useParams();
   const [topic, setTopic] = useState({});
   const [newComment, setNewComment] = useState("");
@@ -22,7 +24,7 @@ export default function TopicPage() {
   const addComment = async () => {
     const topicDoc = doc(getFirestore(), "topics", topicId);
     updateDoc(topicDoc, {
-      comments: arrayUnion(newComment),
+      comments: arrayUnion({ text: newComment, user: user.email }),
     });
   };
   return (
@@ -31,7 +33,7 @@ export default function TopicPage() {
       <ul>
         {topic.comments &&
           topic.comments.map((comment, index) => (
-            <li key={index}>{comment}</li>
+            <li key={index}>{comment.text + " " + "(" + comment.user + ")"}</li>
           ))}
       </ul>
       <input
