@@ -19,7 +19,7 @@ export default function TopicPage() {
     });
   }, [topicId]);
 
-  const addComment = async (comment) => {
+  const addComment = async () => {
     const topicDoc = doc(getFirestore(), "topics", topicId);
     updateDoc(topicDoc, {
       comments: arrayUnion(newComment),
