@@ -138,12 +138,19 @@ const Calculator = () => {
           </button>
         </div>
       </div>
-      {user && (
+      {user && history.length > 0 && (
         <div className="history">
           <h2>History</h2>
           <ul>
             {history.map((calculation, index) => (
-              <li key={index}>{calculation}</li>
+              <>
+                <li key={index}>{calculation}</li>
+                <button
+                  onClick={() => navigator.clipboard.writeText(calculation)}
+                >
+                  Copy
+                </button>
+              </>
             ))}
           </ul>
         </div>
