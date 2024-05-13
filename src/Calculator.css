@@ -5,7 +5,6 @@
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 0 auto; /* Center the calculator horizontally */
     display: flex;
     flex-direction: column;
     justify-content: space-between;

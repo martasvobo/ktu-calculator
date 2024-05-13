@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './MatrixPage.css'; // Import CSS file
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./MatrixPage.css"; // Import CSS file
 
 function MatrixPage() {
   const [matrix1, setMatrix1] = useState([
@@ -61,15 +61,15 @@ function MatrixPage() {
   const performOperation = (operator) => {
     // Perform matrix operation based on the selected operator
     let operationResult = [];
-    if (operator === '+') {
+    if (operator === "+") {
       operationResult = matrix1.map((row, rowIndex) =>
         row.map((cell, colIndex) => cell + matrix2[rowIndex][colIndex])
       );
-    } else if (operator === '-') {
+    } else if (operator === "-") {
       operationResult = matrix1.map((row, rowIndex) =>
         row.map((cell, colIndex) => cell - matrix2[rowIndex][colIndex])
       );
-    } else if (operator === '*') {
+    } else if (operator === "*") {
       operationResult = matrix1.map((row, rowIndex) =>
         row.map((_, colIndex) =>
           matrix1[rowIndex].reduce(
@@ -86,9 +86,6 @@ function MatrixPage() {
     <div className="matrix-container">
       <div className="header">
         <h1>Matricu Skaiciuotuvas</h1>
-        <div className="nav-buttons">
-          <Link to="/">pagrindinis psl</Link>
-        </div>
       </div>
       <h1 className="matrix-title">Matricu operacijos</h1>
       <div className="matrix-inputs">
@@ -101,7 +98,9 @@ function MatrixPage() {
                     <input
                       type="number"
                       value={cell}
-                      onChange={(e) => handleChangeMatrix1(e, rowIndex, colIndex)}
+                      onChange={(e) =>
+                        handleChangeMatrix1(e, rowIndex, colIndex)
+                      }
                       className="matrix-input"
                     />
                   </td>
@@ -119,7 +118,9 @@ function MatrixPage() {
                     <input
                       type="number"
                       value={cell}
-                      onChange={(e) => handleChangeMatrix2(e, rowIndex, colIndex)}
+                      onChange={(e) =>
+                        handleChangeMatrix2(e, rowIndex, colIndex)
+                      }
                       className="matrix-input"
                     />
                   </td>
@@ -131,9 +132,9 @@ function MatrixPage() {
       </div>
       <div className="matrix-buttons">
         <button onClick={increaseSize}>Padidinti dydi</button>
-        <button onClick={() => performOperation('+')}>sudeti</button>
-        <button onClick={() => performOperation('-')}>atimti</button>
-        <button onClick={() => performOperation('*')}>sudauginti</button>
+        <button onClick={() => performOperation("+")}>sudeti</button>
+        <button onClick={() => performOperation("-")}>atimti</button>
+        <button onClick={() => performOperation("*")}>sudauginti</button>
       </div>
       <div className="matrix-result">
         <h2>Rezultatas</h2>

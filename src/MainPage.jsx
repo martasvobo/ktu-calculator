@@ -10,11 +10,7 @@ function MainPage() {
   return (
     <div className="main-container">
       <header>
-        {user ? (
-          <h1>Sveiki {user.email}</h1>
-        ) : (
-          <h1>Sveiki atvyke!</h1>
-        )}
+        {user ? <h1>Sveiki {user.email}</h1> : <h1>Sveiki atvyke!</h1>}
         <nav>
           <ul>
             <li>
@@ -45,14 +41,14 @@ function MainPage() {
             )}
             {user && (
               <li>
-                <button
+                <Link
                   onClick={() => {
                     auth.signOut();
                     window.location.reload();
                   }}
                 >
                   Atsijungti
-                </button>
+                </Link>
               </li>
             )}
           </ul>

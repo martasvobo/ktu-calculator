@@ -80,81 +80,95 @@ const Calculator = () => {
             <li>
               <Link to="/topics">Temos</Link>
             </li>
-            <li>
-              <Link to="/calculator">Skaiciuotuvas</Link>
-            </li>
-            <li>
-              <Link to="/matrix">Matricos</Link>
-            </li>
+
+            {user && (
+              <li>
+                <Link to="/matrix">Matricos</Link>
+              </li>
+            )}
           </ul>
         </nav>
       </header>
-      <div className="calculator">
-        <div className="result-container">
-          <input
-            className="expression"
-            type="text"
-            value={expression}
-            readOnly
-          />
-          <div className="result">{result}</div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+        }}
+      >
+        <div className="calculator">
+          <div className="result-container">
+            <input
+              className="expression"
+              type="text"
+              value={expression}
+              readOnly
+            />
+            <div className="result">{result}</div>
+          </div>
+          <div className="buttons">
+            <button onClick={() => handleButtonClick("sin(")}>sin</button>
+            <button onClick={() => handleButtonClick("cos(")}>cos</button>
+            <button onClick={() => handleButtonClick("tan(")}>tan</button>
+            <button onClick={() => handleButtonClick("sqrt(")}>√</button>
+            <button onClick={() => handleButtonClick("log(")}>log</button>
+            <button onClick={() => handleButtonClick("exp(")}>exp</button>
+            <button onClick={() => handleButtonClick("^")}>^</button>
+            <button onClick={() => handleButtonClick("(")}>(</button>
+            <button onClick={() => handleButtonClick("7")}>7</button>
+            <button onClick={() => handleButtonClick("8")}>8</button>
+            <button onClick={() => handleButtonClick("9")}>9</button>
+            <button onClick={() => handleButtonClick(")")}>)</button>
+            <button onClick={() => handleButtonClick("4")}>4</button>
+            <button onClick={() => handleButtonClick("5")}>5</button>
+            <button onClick={() => handleButtonClick("6")}>6</button>
+            <button onClick={() => handleButtonClick("-")}>-</button>
+            <button onClick={() => handleButtonClick("1")}>1</button>
+            <button onClick={() => handleButtonClick("2")}>2</button>
+            <button onClick={() => handleButtonClick("3")}>3</button>
+            <button onClick={() => handleButtonClick("+")}>+</button>
+            <button onClick={() => handleButtonClick("0")}>0</button>
+            <button onClick={() => handleButtonClick(".")}>.</button>
+            <button onClick={() => handleButtonClick("/")}>/</button>
+            <button onClick={() => handleButtonClick("*")}>*</button>
+            <button className="clear" onClick={clearExpression}>
+              C
+            </button>
+            <button
+              className="equal"
+              onClick={() => {
+                const result = calculateResult();
+                addToHistory(expression, result);
+              }}
+            >
+              =
+            </button>
+          </div>
         </div>
-        <div className="buttons">
-          <button onClick={() => handleButtonClick("sin(")}>sin</button>
-          <button onClick={() => handleButtonClick("cos(")}>cos</button>
-          <button onClick={() => handleButtonClick("tan(")}>tan</button>
-          <button onClick={() => handleButtonClick("sqrt(")}>√</button>
-          <button onClick={() => handleButtonClick("log(")}>log</button>
-          <button onClick={() => handleButtonClick("exp(")}>exp</button>
-          <button onClick={() => handleButtonClick("^")}>^</button>
-          <button onClick={() => handleButtonClick("(")}>(</button>
-          <button onClick={() => handleButtonClick("7")}>7</button>
-          <button onClick={() => handleButtonClick("8")}>8</button>
-          <button onClick={() => handleButtonClick("9")}>9</button>
-          <button onClick={() => handleButtonClick(")")}>)</button>
-          <button onClick={() => handleButtonClick("4")}>4</button>
-          <button onClick={() => handleButtonClick("5")}>5</button>
-          <button onClick={() => handleButtonClick("6")}>6</button>
-          <button onClick={() => handleButtonClick("-")}>-</button>
-          <button onClick={() => handleButtonClick("1")}>1</button>
-          <button onClick={() => handleButtonClick("2")}>2</button>
-          <button onClick={() => handleButtonClick("3")}>3</button>
-          <button onClick={() => handleButtonClick("+")}>+</button>
-          <button onClick={() => handleButtonClick("0")}>0</button>
-          <button onClick={() => handleButtonClick(".")}>.</button>
-          <button onClick={() => handleButtonClick("/")}>/</button>
-          <button onClick={() => handleButtonClick("*")}>*</button>
-          <button className="clear" onClick={clearExpression}>
-            C
-          </button>
-          <button
-            className="equal"
-            onClick={() => {
-              const result = calculateResult();
-              addToHistory(expression, result);
-            }}
-          >
-            =
-          </button>
-        </div>
+        {user && history.length > 0 && (
+          <div style={{ backgroundColor: "white" }}>
+            <h2>History</h2>
+            <div
+              className="history"
+              style={{ maxHeight: "600px", overflow: "auto" }}
+            >
+              <ul>
+                {history.map((calculation, index) => (
+                  <>
+                    <li key={index}>{calculation}</li>
+                    <button
+                      onClick={() => navigator.clipboard.writeText(calculation)}
+                    >
+                      Copy
+                    </button>
+                  </>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
       </div>
-      {user && history.length > 0 && (
-        <div className="history">
-          <h2>History</h2>
-          <ul>
-            {history.map((calculation, index) => (
-              <>
-                <li key={index}>{calculation}</li>
-                <button
-                  onClick={() => navigator.clipboard.writeText(calculation)}
-                >
-                  Copy
-                </button>
-              </>
-            ))}
-          </ul>
-        </div>
-      )}
     </div>
   );
 };

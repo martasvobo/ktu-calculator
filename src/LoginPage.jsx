@@ -30,6 +30,7 @@ export default function LoginPage() {
         }}
       />
       <button
+        style={{ marginBottom: "10px" }}
         onClick={() => {
           signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {

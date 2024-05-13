@@ -58,9 +58,10 @@
   body {
     margin: 0;
     padding: 0;
-    background-image: url('C:\Users\spran\Downloads\Calculator_project\ktu-calculator\src\maths_1920.png'); /* Replace 'path/to/your/image.jpg' with the actual path to your image file */
+    background-image: url('./assets/maths_1920.png'); /* Replace 'path/to/your/image.jpg' with the actual path to your image file */
     background-size: cover;
     background-position: center;
     height: 100vh; /* Set height to 100% of viewport height */
     overflow: hidden; /* Prevent scrolling */
+    
   }
