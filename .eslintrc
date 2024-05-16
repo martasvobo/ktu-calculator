@@ -1,3 +1,22 @@
 {
-  "extends": "craft-ai/react"
+  "extends": "craft-ai/react",
+  "rules": {
+    "quotes": ["error", "single"],
+    "indent": [2, 2],
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", "never"],
+    "no-console": "error",
+    "no-unused-vars": "error",
+    "eqeqeq": "error", // requires the use of === and !==
+    "no-undef": "off", // disallows the use of undeclared variables
+    "no-redeclare": "error", // disallows variable redeclaration
+    "no-trailing-spaces": "error", // disallows trailing whitespace at the end of lines
+    "eol-last": ["error", "always"], // requires newline at the end of files
+    "sort-imports": "off",
+    "react/jsx-no-bind": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  }
 }

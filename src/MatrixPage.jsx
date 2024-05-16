@@ -1,21 +1,20 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./MatrixPage.css"; // Import CSS file
+import React, { useState } from 'react';
+import './MatrixPage.css'; // Import CSS file
 
 function MatrixPage() {
   const [matrix1, setMatrix1] = useState([
     [0, 0],
-    [0, 0],
+    [0, 0]
   ]);
 
   const [matrix2, setMatrix2] = useState([
     [0, 0],
-    [0, 0],
+    [0, 0]
   ]);
 
   const [resultMatrix, setResultMatrix] = useState([
     [0, 0],
-    [0, 0],
+    [0, 0]
   ]);
 
   const [rows, setRows] = useState(2);
@@ -26,8 +25,8 @@ function MatrixPage() {
     const updatedMatrix = matrix1.map((rowArr, rowIndex) =>
       rowIndex === row
         ? rowArr.map((colValue, colIndex) =>
-            colIndex === col ? value : colValue
-          )
+          colIndex === col ? value : colValue
+        )
         : rowArr
     );
     setMatrix1(updatedMatrix);
@@ -38,8 +37,8 @@ function MatrixPage() {
     const updatedMatrix = matrix2.map((rowArr, rowIndex) =>
       rowIndex === row
         ? rowArr.map((colValue, colIndex) =>
-            colIndex === col ? value : colValue
-          )
+          colIndex === col ? value : colValue
+        )
         : rowArr
     );
     setMatrix2(updatedMatrix);
@@ -49,8 +48,10 @@ function MatrixPage() {
     const newMatrix1 = [];
     const newMatrix2 = [];
     for (let i = 0; i < rows + 1; i++) {
-      newMatrix1.push(Array(cols + 1).fill(0));
-      newMatrix2.push(Array(cols + 1).fill(0));
+      newMatrix1.push(Array(cols + 1)
+        .fill(0));
+      newMatrix2.push(Array(cols + 1)
+        .fill(0));
     }
     setRows(rows + 1);
     setCols(cols + 1);
@@ -61,15 +62,17 @@ function MatrixPage() {
   const performOperation = (operator) => {
     // Perform matrix operation based on the selected operator
     let operationResult = [];
-    if (operator === "+") {
+    if (operator === '+') {
       operationResult = matrix1.map((row, rowIndex) =>
         row.map((cell, colIndex) => cell + matrix2[rowIndex][colIndex])
       );
-    } else if (operator === "-") {
+    }
+    else if (operator === '-') {
       operationResult = matrix1.map((row, rowIndex) =>
         row.map((cell, colIndex) => cell - matrix2[rowIndex][colIndex])
       );
-    } else if (operator === "*") {
+    }
+    else if (operator === '*') {
       operationResult = matrix1.map((row, rowIndex) =>
         row.map((_, colIndex) =>
           matrix1[rowIndex].reduce(
@@ -83,25 +86,25 @@ function MatrixPage() {
   };
 
   return (
-    <div className="matrix-container">
-      <div className="header">
+    <div className='matrix-container'>
+      <div className='header'>
         <h1>Matricu Skaiciuotuvas</h1>
       </div>
-      <h1 className="matrix-title">Matricu operacijos</h1>
-      <div className="matrix-inputs">
-        <table className="matrix-table">
+      <h1 className='matrix-title'>Matricu operacijos</h1>
+      <div className='matrix-inputs'>
+        <table className='matrix-table'>
           <tbody>
             {matrix1.map((row, rowIndex) => (
-              <tr key={rowIndex}>
+              <tr key={ rowIndex }>
                 {row.map((cell, colIndex) => (
-                  <td key={`${rowIndex}-${colIndex}`}>
+                  <td key={ `${rowIndex}-${colIndex}` }>
                     <input
-                      type="number"
-                      value={cell}
-                      onChange={(e) =>
+                      type='number'
+                      value={ cell }
+                      onChange={ (e) =>
                         handleChangeMatrix1(e, rowIndex, colIndex)
                       }
-                      className="matrix-input"
+                      className='matrix-input'
                     />
                   </td>
                 ))}
@@ -109,19 +112,19 @@ function MatrixPage() {
             ))}
           </tbody>
         </table>
-        <table className="matrix-table">
+        <table className='matrix-table'>
           <tbody>
             {matrix2.map((row, rowIndex) => (
-              <tr key={rowIndex}>
+              <tr key={ rowIndex }>
                 {row.map((cell, colIndex) => (
-                  <td key={`${rowIndex}-${colIndex}`}>
+                  <td key={ `${rowIndex}-${colIndex}` }>
                     <input
-                      type="number"
-                      value={cell}
-                      onChange={(e) =>
+                      type='number'
+                      value={ cell }
+                      onChange={ (e) =>
                         handleChangeMatrix2(e, rowIndex, colIndex)
                       }
-                      className="matrix-input"
+                      className='matrix-input'
                     />
                   </td>
                 ))}
@@ -130,20 +133,20 @@ function MatrixPage() {
           </tbody>
         </table>
       </div>
-      <div className="matrix-buttons">
-        <button onClick={increaseSize}>Padidinti dydi</button>
-        <button onClick={() => performOperation("+")}>sudeti</button>
-        <button onClick={() => performOperation("-")}>atimti</button>
-        <button onClick={() => performOperation("*")}>sudauginti</button>
+      <div className='matrix-buttons'>
+        <button onClick={ increaseSize }>Padidinti dydi</button>
+        <button onClick={ () => performOperation('+') }>sudeti</button>
+        <button onClick={ () => performOperation('-') }>atimti</button>
+        <button onClick={ () => performOperation('*') }>sudauginti</button>
       </div>
-      <div className="matrix-result">
+      <div className='matrix-result'>
         <h2>Rezultatas</h2>
-        <table className="matrix-table">
+        <table className='matrix-table'>
           <tbody>
             {resultMatrix.map((row, rowIndex) => (
-              <tr key={rowIndex}>
+              <tr key={ rowIndex }>
                 {row.map((cell, colIndex) => (
-                  <td key={`${rowIndex}-${colIndex}`}>{cell}</td>
+                  <td key={ `${rowIndex}-${colIndex}` }>{cell}</td>
                 ))}
               </tr>
             ))}

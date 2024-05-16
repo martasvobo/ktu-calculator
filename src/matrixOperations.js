@@ -1,15 +1,17 @@
 export function performOperation(operator, matrix1, matrix2) {
   // Perform matrix operation based on the selected operator
   let operationResult = [];
-  if (operator === "+") {
+  if (operator === '+') {
     operationResult = matrix1.map((row, rowIndex) =>
       row.map((cell, colIndex) => cell + matrix2[rowIndex][colIndex])
     );
-  } else if (operator === "-") {
+  }
+  else if (operator === '-') {
     operationResult = matrix1.map((row, rowIndex) =>
       row.map((cell, colIndex) => cell - matrix2[rowIndex][colIndex])
     );
-  } else if (operator === "*") {
+  }
+  else if (operator === '*') {
     operationResult = matrix1.map((row, rowIndex) =>
       row.map((_, colIndex) =>
         matrix1[rowIndex].reduce(

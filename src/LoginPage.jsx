@@ -1,60 +1,60 @@
 import {
   sendPasswordResetEmail,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
-import React, { useState } from "react";
-import { auth } from "./firebase";
-import "./LoginPage.css"; // Import CSS file
+  signInWithEmailAndPassword
+} from 'firebase/auth';
+import React, { useState } from 'react';
+import { auth } from './firebase';
+import './LoginPage.css'; // Import CSS file
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   return (
-    <div className="login-container">
+    <div className='login-container'>
       <input
-        type="email"
-        placeholder="Email"
+        type='email'
+        placeholder='Email'
         required
-        onChange={(e) => {
+        onChange={ (e) => {
           setEmail(e.target.value);
-        }}
+        } }
       />
       <input
-        type="password"
-        placeholder="Password"
+        type='password'
+        placeholder='Password'
         required
-        onChange={(e) => {
+        onChange={ (e) => {
           setPassword(e.target.value);
-        }}
+        } }
       />
       <button
-        style={{ marginBottom: "10px" }}
-        onClick={() => {
+        style={{ marginBottom: '10px' }}
+        onClick={ () => {
           signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-              window.open("/", "_self");
+              window.open('/', '_self');
             })
             .catch((error) => {
               setErrorMessage(error.message);
             });
-        }}
+        } }
       >
         Log in
       </button>
       <button
-        onClick={() => {
+        onClick={ () => {
           sendPasswordResetEmail(auth, email)
             .then(() => {
-              alert("Password reset email sent!");
-              setErrorMessage("KEbabs");
+              alert('Password reset email sent!');
+              setErrorMessage('KEbabs');
             })
             .catch((error) => {
               setErrorMessage(error.message);
-              setErrorMessage("KEbabs");
+              setErrorMessage('KEbabs');
             });
-        }}
+        } }
       >
         Change Password
       </button>
