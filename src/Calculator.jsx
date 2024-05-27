@@ -74,10 +74,6 @@ const Calculator = () => {
             <li>
               <Link to='/'>Pagrindinis psl</Link>
             </li>
-            <li>
-              <Link to='/topics'>Temos</Link>
-            </li>
-
             {user && (
               <li>
                 <Link to='/matrix'>Matricos</Link>

@@ -1,5 +1,7 @@
+// MatrixPage.jsx
 import React, { useState } from 'react';
-import './MatrixPage.css'; // Import CSS file
+import { Link } from 'react-router-dom';
+import './MatrixPage.css'; // Import CSS file for MatrixPage styling
 
 function MatrixPage() {
   const [matrix1, setMatrix1] = useState([
@@ -48,10 +50,8 @@ function MatrixPage() {
     const newMatrix1 = [];
     const newMatrix2 = [];
     for (let i = 0; i < rows + 1; i++) {
-      newMatrix1.push(Array(cols + 1)
-        .fill(0));
-      newMatrix2.push(Array(cols + 1)
-        .fill(0));
+      newMatrix1.push(Array(cols + 1).fill(0));
+      newMatrix2.push(Array(cols + 1).fill(0));
     }
     setRows(rows + 1);
     setCols(cols + 1);
@@ -66,13 +66,11 @@ function MatrixPage() {
       operationResult = matrix1.map((row, rowIndex) =>
         row.map((cell, colIndex) => cell + matrix2[rowIndex][colIndex])
       );
-    }
-    else if (operator === '-') {
+    } else if (operator === '-') {
       operationResult = matrix1.map((row, rowIndex) =>
         row.map((cell, colIndex) => cell - matrix2[rowIndex][colIndex])
       );
-    }
-    else if (operator === '*') {
+    } else if (operator === '*') {
       operationResult = matrix1.map((row, rowIndex) =>
         row.map((_, colIndex) =>
           matrix1[rowIndex].reduce(
@@ -87,21 +85,27 @@ function MatrixPage() {
 
   return (
     <div className='matrix-container'>
-      <div className='header'>
-        <h1>Matricu Skaiciuotuvas</h1>
-      </div>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <Link to='/' className='main-page-button main-page-link'>Atgal į pagrindinį puslapį</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
       <h1 className='matrix-title'>Matricu operacijos</h1>
       <div className='matrix-inputs'>
         <table className='matrix-table'>
           <tbody>
             {matrix1.map((row, rowIndex) => (
-              <tr key={ rowIndex }>
+              <tr key={rowIndex}>
                 {row.map((cell, colIndex) => (
-                  <td key={ `${rowIndex}-${colIndex}` }>
+                  <td key={`${rowIndex}-${colIndex}`}>
                     <input
                       type='number'
-                      value={ cell }
-                      onChange={ (e) =>
+                      value={cell}
+                      onChange={(e) =>
                         handleChangeMatrix1(e, rowIndex, colIndex)
                       }
                       className='matrix-input'
@@ -115,13 +119,13 @@ function MatrixPage() {
         <table className='matrix-table'>
           <tbody>
             {matrix2.map((row, rowIndex) => (
-              <tr key={ rowIndex }>
+              <tr key={rowIndex}>
                 {row.map((cell, colIndex) => (
-                  <td key={ `${rowIndex}-${colIndex}` }>
+                  <td key={`${rowIndex}-${colIndex}`}>
                     <input
                       type='number'
-                      value={ cell }
-                      onChange={ (e) =>
+                      value={cell}
+                      onChange={(e) =>
                         handleChangeMatrix2(e, rowIndex, colIndex)
                       }
                       className='matrix-input'
@@ -134,19 +138,19 @@ function MatrixPage() {
         </table>
       </div>
       <div className='matrix-buttons'>
-        <button onClick={ increaseSize }>Padidinti dydi</button>
-        <button onClick={ () => performOperation('+') }>sudeti</button>
-        <button onClick={ () => performOperation('-') }>atimti</button>
-        <button onClick={ () => performOperation('*') }>sudauginti</button>
+        <button onClick={increaseSize}>Padidinti dydi</button>
+        <button onClick={() => performOperation('+')}>sudeti</button>
+        <button onClick={() => performOperation('-')}>atimti</button>
+        <button onClick={() => performOperation('*')}>sudauginti</button>
       </div>
       <div className='matrix-result'>
         <h2>Rezultatas</h2>
         <table className='matrix-table'>
           <tbody>
             {resultMatrix.map((row, rowIndex) => (
-              <tr key={ rowIndex }>
+              <tr key={rowIndex}>
                 {row.map((cell, colIndex) => (
-                  <td key={ `${rowIndex}-${colIndex}` }>{cell}</td>
+                  <td key={`${rowIndex}-${colIndex}`}>{cell}</td>
                 ))}
               </tr>
             ))}

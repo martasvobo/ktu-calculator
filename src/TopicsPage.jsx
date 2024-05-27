@@ -8,6 +8,7 @@ import {
 } from 'firebase/firestore';
 import { UserContext } from './App';
 import { Link } from 'react-router-dom';
+
 const TopicsPage = () => {
   const [topics, setTopics] = useState([]);
   const [newTopic, setNewTopic] = useState('');
@@ -30,9 +31,18 @@ const TopicsPage = () => {
   };
 
   return (
-    <div>
+    <div className="topics-container">
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <Link to='/' className='main-page-button'>Pagrindinis puslapis</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
       <h1>Temu sarasas</h1>
-      <div>
+      <div className="input-container">
         <input
           type='text'
           value={ newTopic }

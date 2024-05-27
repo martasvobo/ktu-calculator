@@ -1,52 +1,101 @@
+/* TopicsPage.css */
+
+/* Main Container */
 .topics-container {
-    background-color: #f2f2f2; /* Grey background color */
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  .input-container {
-    margin-bottom: 20px;
-  }
-  
-  input[type='text'] {
-    padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 300px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: #4caf50; /* Green button color */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #45a049; /* Darker green button color on hover */
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: white; /* White background color for the table */
-    border-radius: 5px;
-  }
-  
-  table th, table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-  }
-  
-  table th {
-    background-color: #f2f2f2; /* Grey background color for table header */
-  }
-  h1 {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
+  background-color: #f2f2f2; /* Grey background color */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Header */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+/* Navigation */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center; /* Center the navigation */
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #4CAF50; /* Green */
+}
+
+nav ul li a:hover {
+  background-color: #45a049; /* Darker green */
+}
+
+/* Input Container */
+.input-container {
+  margin-bottom: 20px;
+}
+
+input[type='text'] {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4caf50; /* Green button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049; /* Darker green button color on hover */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white; /* White background color for the table */
+  border-radius: 5px;
+}
+
+table th, table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+table th {
+  background-color: #f2f2f2; /* Grey background color for table header */
+}
+
+h1 {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Centering the "Pagrindinis puslapis" button */
+.main-page-button {
+  padding: 10px 20px;
+  background-color: green;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 20px; /* Adjust margin as needed */
+}
+
+.main-page-button:hover {
+  background-color: darkgreen;
+}
