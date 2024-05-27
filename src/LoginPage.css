@@ -10,7 +10,7 @@
   .login-container input[type='email'],
   .login-container input[type='password'] {
     display: block;
-    width: 100%;
+    width: 93%;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
