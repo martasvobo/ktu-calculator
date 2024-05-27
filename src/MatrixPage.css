@@ -1,61 +1,105 @@
+/* MatrixPage.css */
 .matrix-container {
-    max-width: 90%; /* Adjust as needed */
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f0f0f0;
-  }
-  
-  .matrix-title {
-    text-align: center;
-    margin-bottom: 20px;
-    background-color: #333;
-  }
-  
-  .matrix-inputs {
-    display: flex;
-    flex-wrap: wrap; /* Allow inputs to wrap to next line */
-    justify-content: center; /* Center the inputs */
-    margin-bottom: 20px;
-  }
-  
-  .matrix-table {
-    border-collapse: collapse;
-    width: auto; /* Allow table to adjust width based on content */
-    margin: 0 auto;
-  }
-  
-  .matrix-table td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    width: 40px; /* Set fixed width for each cell */
-    height: 40px; /* Set fixed height for each cell */
-    text-align: center;
-  }
-  
-  .matrix-buttons {
-    display: flex;
-    justify-content: center; /* Center the buttons */
-    margin-bottom: 20px;
-  }
-  
-  .matrix-result {
-    margin-top: 20px;
-  }
-  
-  .matrix-result h2 {
-    text-align: center;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  .main-page-button {
-    padding: 10px 20px;
-    background-color: green;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-right: 20px; /* Adjust margin as needed */
-  }
-  
-  .main-page-button:hover {
-    background-color: darkgreen;
-  }
+  max-width: 90%; /* Adjust as needed */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.matrix-title {
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+.matrix-inputs {
+  display: flex;
+  flex-wrap: wrap; /* Allow inputs to wrap to next line */
+  justify-content: center; /* Center the inputs */
+  margin-bottom: 20px;
+}
+
+.matrix-table {
+  border-collapse: collapse;
+  width: auto; /* Allow table to adjust width based on content */
+  margin: 0 auto;
+}
+
+.matrix-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  width: 40px; /* Set fixed width for each cell */
+  height: 40px; /* Set fixed height for each cell */
+  text-align: center;
+}
+
+.matrix-buttons {
+  display: flex;
+  justify-content: center; /* Center the buttons */
+  margin-bottom: 20px;
+}
+
+.matrix-result {
+  margin-top: 20px;
+}
+
+.matrix-result h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.main-page-button {
+  padding: 10px 20px;
+  background-color: green;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 20px; /* Adjust margin as needed */
+}
+
+.main-page-button:hover {
+  background-color: darkgreen;
+}
+
+/* Header Styles */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+  padding: auto;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #4CAF50; /* Green */
+}
+
+nav ul li a:hover {
+  background-color: #45a049; /* Darker green */
+}
+
+nav ul li.main-page-link {
+  display: inline-block;
+  margin-right: 0; /* Remove right margin */
+  margin-left: auto; /* Auto margin on the left to center */
+}

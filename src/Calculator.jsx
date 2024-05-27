@@ -75,12 +75,6 @@ const Calculator = () => {
             </li>
             {user && (
               <li>
-                <Link to="/topics">Temos</Link>
-              </li>
-            )}
-
-            {user && (
-              <li>
                 <Link to="/matrix">Matricos</Link>
               </li>
             )}
